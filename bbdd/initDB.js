@@ -16,10 +16,10 @@ async function main() {
         connection = await getConnection();
 
         console.log('Borrando tablas...');
-
-        await connection.query(`DROP TABLE IF EXISTS usuarios`);
         await connection.query(`DROP TABLE IF EXISTS votos`);
         await connection.query(`DROP TABLE IF EXISTS enlaces`);
+        await connection.query(`DROP TABLE IF EXISTS usuarios`);
+        
 
         console.log('Creando tablas...');
 
@@ -28,11 +28,12 @@ async function main() {
             id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             email VARCHAR(100) UNIQUE NOT NULL,
             rol  ENUM ('estandar', 'admin') DEFAULT 'estandar',
-            contraseña VARCHAR(100) NOT NULL, 
+            password VARCHAR(100) NOT NULL, 
             foto VARCHAR(100),
             biografia VARCHAR(500),
             createdAt TIMESTAMP  DEFAULT CURRENT_TIMESTAMP,
             modifiedAt TIMESTAMP
+            )
             `);
 
         await connection.query(`
@@ -55,7 +56,7 @@ async function main() {
             idEnlaces INT UNSIGNED NOT NULL,
             FOREIGN KEY (idEnlaces) REFERENCES enlaces (id),
             fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            valoracion ENUM ('util', 'prescindible') DEFAULT 'util'
+            valoracion ENUM ('util', 'prescindible') DEFAULT 'util',
             unique( idEnlaces, idAutor )
         )
         `);
@@ -67,7 +68,7 @@ async function main() {
 
         await connection.query(
             `
-                INSERT INTO usuarios (email, contraseña, rol, createdAt)
+                INSERT INTO usuarios (email, password, rol, createdAt)
                 VALUES ('admin@admin.com', ?,'admin', ?)
             `,
             [adminPassword, new Date()]
