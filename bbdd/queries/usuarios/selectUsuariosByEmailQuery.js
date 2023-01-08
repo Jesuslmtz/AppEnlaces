@@ -10,7 +10,7 @@ const selectUsuariosByEmailQuery = async (email) => {
 
     // Tratamos de obtener al usuario con el email que venga en el body.
     const [usuarios] = await connection.query(
-      `SELECT id, rol, contraseña FROM usuarios WHERE email = ?`,
+      `SELECT email, rol, password FROM usuarios WHERE email = ?`,
       [email]
     );
 

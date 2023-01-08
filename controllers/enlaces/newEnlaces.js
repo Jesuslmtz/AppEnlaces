@@ -1,12 +1,12 @@
-const insertTweetQuery = require("../../bbdd/queries/enlaces/insertEnlacesQuery");
+const insertEnlaceQuery = require("../../bbdd/queries/enlaces/insertEnlacesQuery");
 
 const { generateError, savePhoto } = require("../../helpers");
 
 const newEnlaces = async (req, res, next) => {
   try {
-    const { text } = req.body;
+    const { texto } = req.body;
 
-    if (!text) {
+    if (!texto) {
       throw generateError("Faltan campos", 400);
     }
 
@@ -23,7 +23,7 @@ const newEnlaces = async (req, res, next) => {
     }
 
     // Insertamos el tweet en la base de datos. Obtenemos el id del tweet.
-    const idEnlaces = await insertEnlacesQuery(req.user.id, text, image);
+    const idEnlaces = await insertEnlaceQuery(req.user.idAutor, texto, image);
 
     res.send({
       status: "ok",

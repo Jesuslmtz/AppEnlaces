@@ -2,7 +2,7 @@ const selectUsuariosByIdQuery = require("../../bbdd/queries/usuarios/selectUsuar
 
 const getOwnUsuarios = async (req, res, next) => {
   try {
-    const user = await selectUsuarioByIdQuery(req.user.id);
+    const user = await selectUsuariosByIdQuery(req.usuarios.id);
 
     res.send({
       status: "ok",

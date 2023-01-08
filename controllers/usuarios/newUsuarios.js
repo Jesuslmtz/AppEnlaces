@@ -4,7 +4,7 @@ const { generateError } = require("../../helpers");
 
 const newUsuarios = async (req, res, next) => {
   try {
-    // Obtenemos mediante destructuring los datos necesarios.
+    // Obtenemos  los datos necesarios.
     const { email, password } = req.body;
 
     // Si falta algún dato lanzamos un error.

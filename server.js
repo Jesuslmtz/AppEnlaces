@@ -10,7 +10,7 @@ const { PORT, UPLOADS_DIR } = process.env;
 const app = express();
 
 // Middleware que permite conectar el backend con el frontend (evita problemas
-// con as CORS).
+// con as CORS), ahora poco útil, pero muy útil en el futuro.
 app.use(cors());
 
 // Middleware que indica cuál es el directorio de ficheros estáticos.
@@ -28,9 +28,7 @@ app.use(fileUpload());
 app.use(morgan("dev"));
 
 /**
- * ###############################
- * ## Controladores intermedios ##
- * ###############################
+  Controladores intermedios 
  */
 
 const isAuth = require("./middlewares/isAuth");
@@ -38,9 +36,7 @@ const isAuthOptional = require("./middlewares/isAuthOptional");
 const enlaceExists = require("./middlewares/enlaceExists");
 
 /**
- * ############################
- * ## Controladores usuarios ##
- * ############################
+ Controladores usuarios
  */
 
 const {
@@ -63,9 +59,8 @@ app.get("/usuarios", isAuth, getOwnUsuarios);
 app.put("/usuarios", isAuth, editUsuarios);
 
 /**
- * ##########################
- * ## Controladores enlaces ##
- * ##########################
+  Controladores enlaces 
+ 
  */
 
 const {
@@ -96,9 +91,8 @@ app.delete("/Enlaces/:idEnlaces/votos", isAuth, enlaceExists, deleteVotos);
 app.delete("/Enlaces/:idEnlaces", isAuth, enlaceExists, deleteEnlaces);
 
 /**
- * ##################################
- * ## Middleware Error / Not found ##
- * ##################################
+  Middleware Error / Not found
+
  */
 
 // Middleware de error.
