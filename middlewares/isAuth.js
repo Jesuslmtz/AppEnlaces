@@ -22,7 +22,7 @@ const isAuth = async (req, res, next) => {
       throw generateError("Token incorrecto", 401);
     }
 
-    // Agregamos una nueva propiedad (inventada por nosotros) en el objeto request.
+    // Agregamos una nueva propiedad en el objeto request.
     req.usuarios = userInfo;
 
     // Saltamos a la siguiente función controladora.

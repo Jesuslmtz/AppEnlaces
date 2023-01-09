@@ -2,20 +2,21 @@ const getConnection = require("../../getConnection");
 
 const { generateError } = require("../../../helpers");
 
-const deleteEnlacesQuery = async (idUsuarios, idEnlaces) => {
+const deleteEnlacesQuery = async (idAutor, idEnlaces) => {
   let connection;
 
   try {
     connection = await getConnection();
 
-    // Seleccionamos el enlace.
+    // Seleccion del enlace.
     const [enlaces] = await connection.query(
-      `SELECT idUsuarios FROM enlaces WHERE idAutor = ?`,
+      `SELECT idAutor FROM enlaces WHERE idAutor = ?`,
       [idAutor]
     );
 
     // Comprobamos si la persona que está intentando eliminar el voto
     // es la propietaria del enlace.
+
     if (enlaces[0].idAutor !== idAutor) {
       throw generateError("No tienes suficientes permisos", 401);
     }

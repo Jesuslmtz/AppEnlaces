@@ -61,8 +61,6 @@ async function main() {
         )
         `);
 
-    console.log("Tablas creadas...");
-
     // Encriptamos la contraseña del administrador.
     const adminPassword = await bcrypt.hash("123456", 10);
 
@@ -73,10 +71,6 @@ async function main() {
             `,
       [adminPassword, new Date()]
     );
-
-    console.log("Usuario administrador creado...");
-
-    console.log("¡Base de datos finalizada!");
   } catch (err) {
     console.error(err);
   } finally {

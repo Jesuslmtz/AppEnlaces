@@ -87,7 +87,7 @@ app.post("/Enlaces/:idEnlaces/votos", isAuth, enlaceExists, newVotos);
 // Eliminar un voto existente.
 app.delete("/Enlaces/:idEnlaces/votos", isAuth, enlaceExists, deleteVotos);
 
-// Eliminar un tweet.
+// Eliminar un enlace.
 app.delete("/Enlaces/:idEnlaces", isAuth, enlaceExists, deleteEnlaces);
 
 /**

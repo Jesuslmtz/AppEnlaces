@@ -5,7 +5,7 @@ const deleteVotos = async (req, res, next) => {
     const { idEnlaces } = req.params;
 
     // Borramos el Voto.
-    await deleteVotosQuery(req.user.id, idEnlaces);
+    await deleteVotosQuery(req.usuarios.id, idEnlaces);
 
     res.send({
       status: "ok",

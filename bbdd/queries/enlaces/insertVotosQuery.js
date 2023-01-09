@@ -19,7 +19,7 @@ const insertVotosQuery = async (idAutor, idEnlaces) => {
     }
 
     await connection.query(
-      `INSERT INTO votos (idAutor, idEnlaces, createdAt) VALUES (?, ?, ?)`,
+      `INSERT INTO votos (idAutor, idEnlaces, fecha) VALUES (?, ?, ?)`,
       [idAutor, idEnlaces, new Date()]
     );
   } finally {

@@ -18,8 +18,7 @@ const loginUsuarios = async (req, res, next) => {
     // Localizamos al usuario con el email del body.
     const Usuarios = await selectUsuariosByEmailQuery(email);
 
-    // Comprobamos si las contraseñas coinciden. El método compare retorna
-    // true o false en función de si las contraseñas coinciden o no.
+    // Comprobamos si las contraseñas coinciden.
     const validPassword = await bcrypt.compare(password, Usuarios.password);
 
     // Si la contraseña es incorrecta lanzamos un error.

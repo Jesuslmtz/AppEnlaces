@@ -2,7 +2,7 @@ const getConnection = require("../../getConnection");
 
 const { generateError } = require("../../../helpers");
 
-const deleteVotosQuery = async (idUsuarios, idEnlaces) => {
+const deleteVotosQuery = async (idAutor, idEnlaces) => {
   let connection;
 
   try {

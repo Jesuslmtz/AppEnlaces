@@ -5,7 +5,7 @@ const newVotos = async (req, res, next) => {
     const { idEnlaces } = req.params;
 
     // Insertamos el voto.
-    await insertVotosQuery(req.user.id, idEnlaces);
+    await insertVotosQuery(req.usuarios.id, idEnlaces);
 
     res.send({
       status: "ok",

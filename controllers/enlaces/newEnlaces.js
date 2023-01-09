@@ -11,18 +11,18 @@ const newEnlaces = async (req, res, next) => {
     }
 
     // Variable donde almacenaremos el nombre con el que vamos a guardar
-    // la imagen en disco (si es que hay imagen, es opcional).
+    // la imagen (opcional).
     let image;
 
     // Si existe imagen la guardamos en la carpeta de uploads y obtenemos
     // el nombre con el que la hemos guardado. Le pasamos como segundo
     // argumento el valor 1 para indicar que se trata de una imagen de un
-    // tweet (no de un avatar).
+    // enlace (no de un avatar).
     if (req.files?.image) {
       image = await savePhoto(req.files.image, 1);
     }
 
-    // Insertamos el tweet en la base de datos. Obtenemos el id del tweet.
+    // Insertamos el enlace en la base de datos. Obtenemos el id del enlace.
     const idEnlaces = await insertEnlaceQuery(
       titulo,
       descripcion,

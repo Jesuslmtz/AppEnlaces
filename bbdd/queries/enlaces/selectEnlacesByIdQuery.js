@@ -6,27 +6,27 @@ const selectEnlacesByIdQuery = async (idAutor, idEnlaces) => {
   try {
     connection = await getConnection();
 
-    const [tweets] = await connection.query(
+    const [enlaces] = await connection.query(
       `
                 SELECT 
                     E.id, 
                     E.idAutor, 
-                    E.texto, 
+                    E.descripcion, 
                     E.foto, 
                     COUNT(V.id) AS votos,
                     BIT_OR(V.idAutor = ?) AS votadosPorMi,
                     E.idAutor = ? AS owner,
-                    E.createdAt
+                    E.fecha
                 FROM enlaces E
                 LEFT JOIN votos V ON E.id = V.idEnlaces
                 WHERE E.id = ?
                 GROUP BY E.id
-                ORDER BY E.createdAt DESC
+                ORDER BY E.fecha DESC
             `,
       [idAutor, idAutor, idEnlaces]
     );
 
-    return tweets[0];
+    return enlaces[0];
   } finally {
     if (connection) connection.release();
   }

@@ -3,10 +3,7 @@ const path = require("path");
 const sharp = require("sharp");
 const { v4: uuid } = require("uuid");
 
-/**
- Generate Error 
- 
- */
+// Generar Error
 
 const generateError = (msg, code) => {
   const err = new Error(msg);
@@ -14,9 +11,7 @@ const generateError = (msg, code) => {
   return err;
 };
 
-/**
-  Save Photo 
- */
+// Guardar foto
 
 const savePhoto = async (img, enlaceImg = 0) => {
   // Creamos la ruta absoluta al directorio donde vamos a subir las imágenes.
@@ -58,9 +53,7 @@ const savePhoto = async (img, enlaceImg = 0) => {
   return imgName;
 };
 
-/*
-Delete Photo 
- */
+// Borrar foto
 
 const deletePhoto = async (imgName) => {
   try {

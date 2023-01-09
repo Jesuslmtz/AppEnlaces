@@ -5,7 +5,7 @@ const deleteEnlaces = async (req, res, next) => {
     const { idEnlaces } = req.params;
 
     // Eliminamos el enlace.
-    await deleteEnlacesQuery(req.user.id, idEnlaces);
+    await deleteEnlacesQuery(req.usuarios.id, idEnlaces);
 
     res.send({
       status: "ok",
