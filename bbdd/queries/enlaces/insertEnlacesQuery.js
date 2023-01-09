@@ -1,6 +1,6 @@
 const getConnection = require("../../getConnection");
 
-const insertEnlacesQuery = async (idAutor, texto, foto) => {
+const insertEnlacesQuery = async (titulo, descripcion, URL, image, idAutor) => {
   let connection;
 
   try {
@@ -9,10 +9,10 @@ const insertEnlacesQuery = async (idAutor, texto, foto) => {
     // Creamos el enlace en la base de datos.
     const [newVoto] = await connection.query(
       `
-                INSERT INTO tweets (idAutor, texto, foto, createdAt)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO enlaces (idAutor, URL, titulo, descripcion, foto)
+                VALUES (?, ?, ?, ?, ?)
             `,
-      [idAutor, texto, foto, new Date()]
+      [idAutor, URL, titulo, descripcion, image]
     );
 
     // Retornamos el id que le ha asignado MySQL al nuevo enlace.

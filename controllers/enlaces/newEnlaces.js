@@ -4,9 +4,9 @@ const { generateError, savePhoto } = require("../../helpers");
 
 const newEnlaces = async (req, res, next) => {
   try {
-    const { texto } = req.body;
+    const { titulo, descripcion, URL } = req.body;
 
-    if (!texto) {
+    if (!titulo || !descripcion || !URL) {
       throw generateError("Faltan campos", 400);
     }
 
@@ -23,14 +23,20 @@ const newEnlaces = async (req, res, next) => {
     }
 
     // Insertamos el tweet en la base de datos. Obtenemos el id del tweet.
-    const idEnlaces = await insertEnlaceQuery(req.user.idAutor, texto, image);
+    const idEnlaces = await insertEnlaceQuery(
+      titulo,
+      descripcion,
+      URL,
+      image,
+      req.usuarios.id
+    );
 
     res.send({
       status: "ok",
       data: {
         enlaces: {
           id: idEnlaces,
-          idAutor: req.user.id,
+          idAutor: req.usuarios.id,
           URL,
           image,
           createdAt: new Date(),

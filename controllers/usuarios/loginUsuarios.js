@@ -27,6 +27,8 @@ const loginUsuarios = async (req, res, next) => {
       throw generateError("Contraseña incorrecta", 401);
     }
 
+    console.log(Usuarios);
+
     // Generamos un objeto con la información que queremos añadir al token.
     const payload = {
       id: Usuarios.id,
