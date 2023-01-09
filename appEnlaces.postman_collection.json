@@ -1,0 +1,333 @@
+{
+  "info": {
+    "_postman_id": "40eb5e03-08e4-455a-b309-17016837e09f",
+    "name": "appEnlaces",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "usuarios",
+      "item": [
+        {
+          "name": "nuevoUsuario",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"pablo@suso \",\n\"password\":\"123\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["usuarios"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "loginUsuario",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"pablo@suso \",\n\"password\":\"123\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/usuarios/login/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["usuarios", "login", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "infoUsuarios",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sIjoiZXN0YW5kYXIiLCJpYXQiOjE2NzMyOTY1MzMsImV4cCI6MTY3MzkwMTMzM30.IexgW-zZbez9PAOmC8tXRrQYZaercUc_CQ90LPn6nTg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["usuarios"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "editUsuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sIjoiZXN0YW5kYXIiLCJpYXQiOjE2NzMyOTY1MzMsImV4cCI6MTY3MzkwMTMzM30.IexgW-zZbez9PAOmC8tXRrQYZaercUc_CQ90LPn6nTg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "pablo@suso",
+                  "type": "text"
+                },
+                {
+                  "key": "foto",
+                  "type": "file",
+                  "src": "/home/hack/Downloads/5f33a5c77a62ab6c79c76e2c_Logotipo_Logotipo HAB_white.png"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["usuarios"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Foto",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:4000/325497a2-4fed-48b3-8bc3-966682bce286.jpg",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["325497a2-4fed-48b3-8bc3-966682bce286.jpg"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "enlaces",
+      "item": [
+        {
+          "name": "nuevoEnlace",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sIjoiZXN0YW5kYXIiLCJpYXQiOjE2NzMyOTY1MzMsImV4cCI6MTY3MzkwMTMzM30.IexgW-zZbez9PAOmC8tXRrQYZaercUc_CQ90LPn6nTg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/home/hack/Downloads/5f33a5c77a62ab6c79c76e2c_Logotipo_Logotipo HAB_white.png"
+                },
+                {
+                  "key": "titulo",
+                  "value": "prueba final",
+                  "type": "text"
+                },
+                {
+                  "key": "descripcion",
+                  "value": "descripcion prueba final",
+                  "type": "text"
+                },
+                {
+                  "key": "URL",
+                  "value": "hackaboss.com",
+                  "type": "text"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/Enlaces",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["Enlaces"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "listaEnlaces",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2wiOiJlc3RhbmRhciIsImlhdCI6MTY3MzEzNDc0MSwiZXhwIjoxNjczNzM5NTQxfQ.KcZrI6vwt1Cf92y_taxZF-PBi-t3NjFxg_2I190bEiE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:4000/Enlaces",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["Enlaces"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "enlaceConcreto",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/Enlaces/6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["Enlaces", "6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "NuevoVoto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiZXN0YW5kYXIiLCJpYXQiOjE2NzMyODkxNDgsImV4cCI6MTY3Mzg5Mzk0OH0.NQJ9YIch6ATBEyNJSdHD8_a9MhXsOJEwAdhe_cVaJUs",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/Enlaces/6/votos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["Enlaces", "6", "votos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "eliminarVoto",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiZXN0YW5kYXIiLCJpYXQiOjE2NzMyODkxNDgsImV4cCI6MTY3Mzg5Mzk0OH0.NQJ9YIch6ATBEyNJSdHD8_a9MhXsOJEwAdhe_cVaJUs",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/Enlaces/6/votos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["Enlaces", "6", "votos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "borrarEnlace",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sIjoiZXN0YW5kYXIiLCJpYXQiOjE2NzMyOTI5ODksImV4cCI6MTY3Mzg5Nzc4OX0.Mra1ClRMlZWXuuMvGbLlHTddcTP7iRI2yovzY2S3g6g",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:4000/Enlaces/6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["Enlaces", "6"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
