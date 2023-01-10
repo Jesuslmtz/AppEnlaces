@@ -10,8 +10,8 @@ const deleteEnlacesQuery = async (idAutor, idEnlaces) => {
 
     // Seleccion del enlace.
     const [enlaces] = await connection.query(
-      `SELECT idAutor FROM enlaces WHERE idAutor = ?`,
-      [idAutor]
+      `SELECT idAutor FROM enlaces WHERE id = ?`,
+      [idEnlaces]
     );
 
     // Comprobamos si la persona que está intentando eliminar el voto

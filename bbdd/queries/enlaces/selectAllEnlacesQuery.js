@@ -16,7 +16,6 @@ const selectAllEnlacesQuery = async (idAutor, clave = "") => {
                     E.foto, 
                     COUNT(V.id) AS votos,
                     BIT_OR(V.idAutor = ?) AS VotadosPorMi,
-                    E.idAutor = ? AS owner,
                     E.fecha
                 FROM enlaces E
                 LEFT JOIN votos V ON E.id = V.idEnlaces
@@ -24,7 +23,7 @@ const selectAllEnlacesQuery = async (idAutor, clave = "") => {
                 GROUP BY E.id
                 ORDER BY E.fecha DESC
             `,
-      [idAutor, idAutor, `%${clave}%`]
+      [idAutor, `%${clave}%`]
     );
 
     return enlaces;
