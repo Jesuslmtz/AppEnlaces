@@ -29,6 +29,7 @@ async function main() {
             rol  ENUM ('estandar', 'admin') DEFAULT 'estandar',
             password VARCHAR(100) NOT NULL, 
             foto VARCHAR(100),
+            nombreUsuario VARCHAR(500) NOT NULL,
             biografia VARCHAR(500),
             createdAt TIMESTAMP  DEFAULT CURRENT_TIMESTAMP,
             modifiedAt TIMESTAMP
@@ -39,7 +40,7 @@ async function main() {
         CREATE TABLE IF NOT EXISTS enlaces (
             id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             idAutor INT UNSIGNED NOT NULL,
-            FOREIGN KEY (idAutor) REFERENCES usuarios (id),
+            FOREIGN KEY (idAutor) REFERENCES usuarios (id),            
             URL VARCHAR(2083) NOT NULL,
             titulo VARCHAR(100) NOT NULL,
             foto VARCHAR(100),
@@ -66,8 +67,8 @@ async function main() {
 
     await connection.query(
       `
-                INSERT INTO usuarios (email, password, rol, createdAt)
-                VALUES ('admin@admin.com', ?,'admin', ?)
+                INSERT INTO usuarios (email, password, nombreUsuario, rol, createdAt)
+                VALUES ('admin@admin.com', ?,"admin", 'admin', ?)
             `,
       [adminPassword, new Date()]
     );

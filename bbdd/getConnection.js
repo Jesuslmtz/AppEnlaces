@@ -23,6 +23,7 @@ const getConnection = async () => {
 
     // Retornamos una conexión libre.
     return await pool.getConnection();
+    console.log(await pool.getConnection());
   } catch (err) {
     console.error(err);
   }
