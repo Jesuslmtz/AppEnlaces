@@ -6,7 +6,8 @@ USE appEnlaces;
 CREATE TABLE IF NOT EXISTS usuarios (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 email VARCHAR(100) UNIQUE NOT NULL,
-                contraseña VARCHAR(100) NOT NULL, 
+                nombreUsuario VARCHAR(100) UNIQUE NOT NULL,
+                password VARCHAR(100) NOT NULL, 
                 rol  ENUM ('estandar', 'admin') DEFAULT 'estandar',
                 foto VARCHAR(100),
                 biografia VARCHAR(500),
@@ -20,6 +21,7 @@ CREATE TABLE IF NOT EXISTS enlaces (
                 FOREIGN KEY (idAutor) REFERENCES usuarios (id),
                 URL VARCHAR(2083) NOT NULL,
                 titulo VARCHAR(100) NOT NULL,
+                foto VARCHAR(100),
                 descripcion VARCHAR(100),
                 fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
@@ -31,15 +33,5 @@ CREATE TABLE IF NOT EXISTS votos (
                 idEnlaces INT UNSIGNED NOT NULL,
                 FOREIGN KEY (idEnlaces) REFERENCES enlaces (id),
                 fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                valoracion ENUM ('util', 'prescindible') DEFAULT 'util',
                 unique( idEnlaces, idAutor )
             );
-
-                
-                 
-				
-	
-            
-	
-                
-

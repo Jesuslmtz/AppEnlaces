@@ -1,7 +1,7 @@
 const getConnection = require("../../getConnection");
 
 const { generateError } = require("../../../helpers");
-
+console.log("hola");
 const selectUsuariosByIdQuery = async (idUsuarios) => {
   let connection;
 
@@ -10,7 +10,7 @@ const selectUsuariosByIdQuery = async (idUsuarios) => {
 
     // Obtenemos los datos del usuario que me interesan.
     const [usuarios] = await connection.query(
-      `SELECT id, email, foto, rol, createdAt FROM usuarios WHERE id = ?`,
+      `SELECT id, email,nombreUsuario, foto, rol, createdAt FROM usuarios WHERE id = ?`,
       [idUsuarios]
     );
 
@@ -19,7 +19,7 @@ const selectUsuariosByIdQuery = async (idUsuarios) => {
       throw generateError("Usuario no encontrado", 404);
     }
 
-    return usuarios;
+    return usuarios[0];
   } finally {
     if (connection) connection.release();
   }

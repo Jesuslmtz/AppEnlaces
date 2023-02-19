@@ -37,6 +37,7 @@ const newEnlaces = async (req, res, next) => {
         enlaces: {
           id: idEnlaces,
           idAutor: req.usuarios.id,
+          titulo,
           URL,
           image,
           createdAt: new Date(),

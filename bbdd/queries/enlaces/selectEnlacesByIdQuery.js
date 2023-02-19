@@ -26,7 +26,7 @@ const selectEnlacesByIdQuery = async (idAutor, idEnlaces) => {
       [idAutor, idAutor, idEnlaces]
     );
 
-    return enlaces[0];
+    return enlaces;
   } finally {
     if (connection) connection.release();
   }
