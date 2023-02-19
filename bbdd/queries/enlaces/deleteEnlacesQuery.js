@@ -14,10 +14,16 @@ const deleteEnlacesQuery = async (idAutor, idEnlaces) => {
       [idEnlaces]
     );
 
+    if (!enlaces.length) {
+      throw generateError("No existe", 404);
+    }
+
+    let enlace = enlaces[0]
+
     // Comprobamos si la persona que está intentando eliminar el voto
     // es la propietaria del enlace.
 
-    if (enlaces.idAutor !== idAutor) {
+    if (enlace.idAutor !== idAutor) {
       throw generateError("No tienes suficientes permisos", 401);
     }
 

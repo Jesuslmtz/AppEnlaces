@@ -1,4 +1,5 @@
 const insertEnlaceQuery = require("../../bbdd/queries/enlaces/insertEnlacesQuery");
+const selectEnlacesByIdQuery = require('../../bbdd/queries/enlaces/selectEnlacesByIdQuery')
 
 const { generateError, savePhoto } = require("../../helpers");
 
@@ -31,18 +32,12 @@ const newEnlaces = async (req, res, next) => {
       req.usuarios.id
     );
 
+    // obtener registro entero de la bbdd
+    let enlace = await selectEnlacesByIdQuery(req.usuarios.id, idEnlaces)
+
     res.send({
       status: "ok",
-      data: {
-        enlaces: {
-          id: idEnlaces,
-          idAutor: req.usuarios.id,
-          titulo,
-          URL,
-          image,
-          createdAt: new Date(),
-        },
-      },
+      data: enlace[0],
     });
   } catch (err) {
     next(err);

@@ -29,8 +29,6 @@ const selectAllEnlacesQuery = async (idUsuarioActual, clave = "") => {
         `;
     const params = [idUsuarioActual, `%${clave}%`];
 
-    console.log(query, params)
-
     // Obtenemos el listado de enlaces.
     const [enlaces] = await connection.query(
       query,
