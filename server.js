@@ -43,6 +43,7 @@ const {
   newUsuarios,
   loginUsuarios,
   getOwnUsuarios,
+  getUsuarios,
   editUsuarios,
 } = require("./controllers/usuarios");
 
@@ -53,10 +54,13 @@ app.post("/usuarios", newUsuarios);
 app.post("/usuarios/login", loginUsuarios);
 
 // Obtener información sobre el usuario del token.
-app.get("/usuarios", isAuth, getOwnUsuarios);
+app.get("/usuarios", getUsuarios);
 
-// Editar la información de email y foto.
-app.put("/usuarios", isAuth, editUsuarios);
+// Obtener información sobre el usuario del token.
+app.get("/usuarios/yo", isAuth, getOwnUsuarios);
+
+// Editar la información de email.
+app.post("/usuarios/yo", isAuth, editUsuarios);
 
 /**
   Controladores enlaces 

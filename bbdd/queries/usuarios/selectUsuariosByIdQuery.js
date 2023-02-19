@@ -19,7 +19,7 @@ const selectUsuariosByIdQuery = async (idUsuarios) => {
       throw generateError("Usuario no encontrado", 404);
     }
 
-    return usuarios;
+    return usuarios[0];
   } finally {
     if (connection) connection.release();
   }

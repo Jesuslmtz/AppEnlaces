@@ -17,7 +17,7 @@ const deleteEnlacesQuery = async (idAutor, idEnlaces) => {
     // Comprobamos si la persona que está intentando eliminar el voto
     // es la propietaria del enlace.
 
-    if (enlaces[0].idAutor !== idAutor) {
+    if (enlaces.idAutor !== idAutor) {
       throw generateError("No tienes suficientes permisos", 401);
     }
 

@@ -12,6 +12,10 @@ Pequeña API sobre una app que te permite crear enlaces, compartirlos, votarlos 
 
 -Ejecutar las dependencias necesarias para el correcto funcionamiento. En nuestro caso son las siguientes:
 
+```bash
+npm i # instala todas las dependencias
+```
+
 1.  npm i express . Libreria de node con métodos para crear servidores.
 2.  npm i jsonwebtoken . Nos permite generar un token con informacion privada.
 3.  npm i dotenv . Nos permite leer el archivo .env
@@ -20,11 +24,10 @@ Pequeña API sobre una app que te permite crear enlaces, compartirlos, votarlos 
 6.  npm i bcrypt . Permite encriptar y desencriptar contraseñas.
 7.  npm i sharp. Para poder procesar imagenes
 8.  npm i nodemailer . Para poder gestionar envio de emails personalizados
-9.  npm i randomstring . Genera string aleatorios.
-10. npm i uuid . Genera codigos aleatorios y unicos. Usado para nombre de ficheros, por ejemplo.
-11. npm i eslint . Dependencia DEV
-12. npm i nodemon . Usado para reiniciar el servidor despues de cada cambio.
-13. npx eslint --init.
+9. npm i uuid . Genera codigos aleatorios y unicos. Usado para nombre de ficheros, por ejemplo.
+10. npm i eslint . Dependencia DEV
+11. npm i nodemon . Usado para reiniciar el servidor despues de cada cambio.
+12. npx eslint --init.
 
 ### ENTIDADES
 
