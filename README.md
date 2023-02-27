@@ -76,5 +76,3 @@ npm i # instala todas las dependencias
 -POST ["/Enlaces/:idEnlaces/votos"]. Añade un voto (requiere token de login)
 -DELETE ["/Enlaces/:idEnlaces/votos"]. Borra un voto (requiere token de login)
 -DELETE ["/Enlaces/:idEnlaces"]. Borra un enlace (requiere token de login).
-
-:)
