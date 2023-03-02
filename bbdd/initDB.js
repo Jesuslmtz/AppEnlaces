@@ -44,7 +44,7 @@ async function main() {
             URL VARCHAR(2083) NOT NULL,
             titulo VARCHAR(100) NOT NULL,
             foto VARCHAR(100),
-            descripcion VARCHAR(100),
+            descripcion VARCHAR(600),
             fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
         `);
