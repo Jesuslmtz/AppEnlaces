@@ -24,7 +24,7 @@ npm i # instala todas las dependencias
 6.  npm i bcrypt . Permite encriptar y desencriptar contraseñas.
 7.  npm i sharp. Para poder procesar imagenes
 8.  npm i nodemailer . Para poder gestionar envio de emails personalizados
-9. npm i uuid . Genera codigos aleatorios y unicos. Usado para nombre de ficheros, por ejemplo.
+9.  npm i uuid . Genera codigos aleatorios y unicos. Usado para nombre de ficheros, por ejemplo.
 10. npm i eslint . Dependencia DEV
 11. npm i nodemon . Usado para reiniciar el servidor despues de cada cambio.
 12. npx eslint --init.
@@ -75,4 +75,4 @@ npm i # instala todas las dependencias
 -GET ["/Enlaces/:idEnlaces"]. Información sobre un enlace concreto
 -POST ["/Enlaces/:idEnlaces/votos"]. Añade un voto (requiere token de login)
 -DELETE ["/Enlaces/:idEnlaces/votos"]. Borra un voto (requiere token de login)
--DELETE ["/Enlaces/:idEnlaces"]. Borra un enlace (requiere token de login)
+-DELETE ["/Enlaces/:idEnlaces"]. Borra un enlace (requiere token de login).
